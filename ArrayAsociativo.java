@@ -1,5 +1,8 @@
 package prArrayAsociativo;
 
+//Beatriz Correa Lopera
+//2ºA Ingeniería del Software
+
 import java.util.NoSuchElementException;
 
 public class ArrayAsociativo {
@@ -113,6 +116,25 @@ public class ArrayAsociativo {
 			}	
 		}
 		return encontrado;
+	}
+	
+	public boolean remove(String clave){
+		boolean encontrado = false;
+		Nodo aux = primero;
+		Nodo anterior = null;
 		
+		while(aux != null && !encontrado){
+			if(aux.clave.equals(clave)){
+				encontrado = true;
+				if(anterior != null){
+					anterior.sig = aux.sig;
+				}else{
+					primero = primero.sig;
+				}
+			}
+			anterior = aux;
+			aux = aux.sig;
+		}
+		return encontrado;
 	}
 }
