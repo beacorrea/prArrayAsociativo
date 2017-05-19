@@ -100,4 +100,19 @@ public class ArrayAsociativo {
 		}
 		return val;	
 	}
+	
+	public boolean containsKey(String clave){
+		boolean encontrado = false;
+		Nodo aux = primero;
+		
+		while(aux!=null && !encontrado){
+			if(aux.clave.equals(clave)){
+				encontrado = true;
+			}else{
+				aux = aux.sig;
+			}	
+		}
+		return encontrado;
+		
+	}
 }

@@ -88,5 +88,23 @@ public class TestArrayAsociativo {
 		array = new ArrayAsociativo (claves,valores);
 		assertEquals("Desconocido", array.getOrElse("ciudad", "Desconocido"));
 	}
+	
+	@Test
+	public void ClaveExisteArrayVacio() {
+		assertEquals(false, array.containsKey("nombre"));
+	}
+	
+	@Test
+	public void ClaveExisteArrayNoContiene() {
+		array = new ArrayAsociativo (claves,valores);
+		assertEquals(false, array.containsKey("ciudad"));
+	}
+	
+	@Test
+	public void ClaveExisteArrayContiene() {
+		array = new ArrayAsociativo (claves,valores);
+		assertEquals(true, array.containsKey("nombre"));
+	}
+	
 }
 
