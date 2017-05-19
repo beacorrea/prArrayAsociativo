@@ -83,7 +83,21 @@ public class ArrayAsociativo {
 			Nodo nuevo = new Nodo(clave,valor,primero);
 			primero = nuevo;
 		}
+	}
+	
+	public String getOrElse(String clave, String valorPorDefecto){
+		String val = valorPorDefecto;
+		Nodo aux = primero;
+		boolean encontrado = false;
 		
-		
+		while(aux!=null && !encontrado){
+			if(aux.clave.equals(clave)){
+				encontrado = true;
+				val = aux.valor;
+			}else{
+				aux = aux.sig;
+			}	
+		}
+		return val;	
 	}
 }
