@@ -53,19 +53,37 @@ public class ArrayAsociativo {
 		boolean encontrado = false;
 		
 		while(aux!=null && !encontrado){
-			if(aux.clave == clave){
+			if(aux.clave.equals(clave)){
 				encontrado = true;
 				val = aux.valor;
 			}else{
 				aux = aux.sig;
 			}	
 		}
-		
 		if(val == null){
 			throw new NoSuchElementException("No existe la clave");
 		}
-		
 		return val;
+	}
+	
+	public void put(String clave, String valor){
+		boolean encontrado = false;
+		Nodo aux = primero;
+		
+		while(aux!=null && !encontrado){
+			if(aux.clave == clave){
+				encontrado = true;
+				aux.valor = valor;
+			}else{
+				aux = aux.sig;
+			}	
+		}
+		
+		if(encontrado == false){
+			Nodo nuevo = new Nodo(clave,valor,primero);
+			primero = nuevo;
+		}
+		
 		
 	}
 }
