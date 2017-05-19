@@ -2,6 +2,8 @@ package prArrayAsociativo;
 
 import static org.junit.Assert.*;
 
+import java.util.NoSuchElementException;
+
 import org.junit.Test;
 
 public class TestArrayAsociativo {
@@ -20,6 +22,22 @@ public class TestArrayAsociativo {
 	public void tamañoArrayNoVacio() {
 		assertEquals(new Integer(4), new Integer(arrayNoVacio.size()));
 	}
+	
+	@Test (expected = NoSuchElementException.class)
+	public void buscarValorArrayVacio() {
+		arrayVacio.get("ciudad");
+	}
+	
+	@Test
+	public void buscarValorArrayEsta() {
+		assertEquals("martin", arrayNoVacio.get("apellido"));
+	}
+	
+	@Test (expected = NoSuchElementException.class)
+	public void buscarValorArrayNoEsta() {
+		arrayNoVacio.get("ciudad");
+	}
+	
 
 }
 
